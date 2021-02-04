@@ -95,9 +95,13 @@
             var sn = n/2 * (a1 + un);
 
             var text = "";
-            for (i = a1; i < 100; i = i + f){
+            var j = 0;
+            for (i = a1; j < 10; i = i + f){
               text += i + ", ";
+              j = j + 1;
             }
+
+            text += '....';
 
             document.getElementById("demo").innerHTML = text;
             document.getElementById('un').innerHTML = un;
@@ -113,11 +117,35 @@
             var pow1 = Math.pow(r, n1 - 1);
             var pow2 = Math.pow(r, n1);
             var unr = a2 * pow1;
-            var snr = a2 * (pow2 - 1) / (r - 1);
+            console.log(pow2);
 
-            var text = "";
-            for (i = a2; i < 100; i = i * r){
-              text += i + ", ";
+            if(r > 1){
+              var snr = a2 * (pow2 - 1) / (r - 1);
+
+              var text = "";
+              var j = 0;
+              for (i = a2; j < 10; i = i * r){
+                text += i + ", ";
+                j = j + 1;
+              }
+
+              text += '....';
+
+            }else if(r < 1){
+              var snr = a2 * (1 - pow2) / (1 - r);
+
+              var text = "";
+              var j = 0
+              for (i = a2; i < 10; i = i * r){
+                text += i + ", ";
+                j = j + 1;
+              }
+
+              text += '....';
+
+            }else if(r == 1 || r === -1){
+              var snr = 'Ratio tidak bisa bernilai 1 atau -1';
+              var text = 'Ratio tidak bisa bernilai 1 atau -1';
             }
 
             document.getElementById("demo1").innerHTML = text;
