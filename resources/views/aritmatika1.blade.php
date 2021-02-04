@@ -48,12 +48,13 @@
                         <td><input type="number" id="n" name="n"></td>
                       </tr>
                       <tr>
-                        <th colspan="2" scope="row"> <button type="submit" onclick="calculateArithmetic()" class="btn btn-success">Calculate</button></th>
+                        <th colspan="2" scope="row"> <button type="submit" onclick="calculateArithmetic()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearArithmetic()" class="btn btn-secondary">Clear~</button></th>
                       </tr>
                     </tbody>
                   </table>
-                  <input type="number" id="un" name="un" style="visibility: hidden">
-                  <input type="number" id="sn" name="sn" style="visibility: hidden">
+                    <p id="demo" style="color: white; visibility: hidden"></p>
+                    <p id="un" style="color: white; visibility: hidden"></p>
+                    <p id="sn" style="color: white; visibility: hidden"></p>
             </div>
             <div class="container">
                 <h1>Geometric Sequence Calculator</h1>
@@ -74,12 +75,14 @@
                         <td><input type="number" id="n1" name="n1"></td>
                       </tr>
                       <tr>
-                        <th colspan="2" scope="row"> <button type="submit" onclick="calculateGeometric()" class="btn btn-success">Calculate</button></th>
+                        <th colspan="2" scope="row"> <button type="submit" onclick="calculateGeometric()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearGeometric()" class="btn btn-secondary">Clear~</button></th>
                       </tr>
                     </tbody>
                   </table>
-                  <input type="number" id="unr" name="unr" style="visibility: hidden">
-                  <input type="number" id="snr" name="snr" style="visibility: hidden">
+                  
+                    <p id="demo1" style="color: white; visibility: hidden"></p>
+                    <p id="unr" style="color: white; visibility: hidden"></p>
+                    <p id="snr" style="color: white; visibility: hidden"></p>
             </div>
         </div>
     </body>
@@ -90,12 +93,20 @@
             var n = parseInt(document.getElementById("n").value);
             var un = a1 + (n - 1) * f;
             var sn = n/2 * (a1 + un);
-            document.getElementById('un').value = un;
-            document.getElementById('sn').value = sn;
+
+            var text = "";
+            for (i = a1; i < 100; i = i + f){
+              text += i + ", ";
+            }
+
+            document.getElementById("demo").innerHTML = text;
+            document.getElementById('un').innerHTML = un;
+            document.getElementById('sn').innerHTML = sn;
             document.getElementById("un").style.visibility = "visible";
             document.getElementById("sn").style.visibility = "visible";
-      }
-      function calculateGeometric(){
+            document.getElementById("demo").style.visibility = "visible";
+        }
+        function calculateGeometric(){
             var a2 = parseInt(document.getElementById("a2").value);
             var r = parseInt(document.getElementById("r").value);
             var n1 = parseInt(document.getElementById("n1").value);
@@ -103,10 +114,34 @@
             var pow2 = Math.pow(r, n1);
             var unr = a2 * pow1;
             var snr = a2 * (pow2 - 1) / (r - 1);
-            document.getElementById('unr').value = unr;
-            document.getElementById('snr').value = snr;
+
+            var text = "";
+            for (i = a2; i < 100; i = i * r){
+              text += i + ", ";
+            }
+
+            document.getElementById("demo1").innerHTML = text;
+            document.getElementById('unr').innerHTML = unr;
+            document.getElementById('snr').innerHTML = snr;
             document.getElementById("unr").style.visibility = "visible";
             document.getElementById("snr").style.visibility = "visible";
-      }
+            document.getElementById("demo1").style.visibility = "visible";
+        }
+        function clearArithmetic(){
+            document.getElementById('a1').value = '';
+            document.getElementById('f').value = '';
+            document.getElementById('n').value = '';
+            document.getElementById("un").style.visibility = "hidden";
+            document.getElementById("sn").style.visibility = "hidden";
+            document.getElementById("demo").style.visibility = "hidden";
+        }
+        function clearGeometric(){
+            document.getElementById('a2').value = '';
+            document.getElementById('r').value = '';
+            document.getElementById('n1').value = '';
+            document.getElementById("unr").style.visibility = "hidden";
+            document.getElementById("snr").style.visibility = "hidden";
+            document.getElementById("demo1").style.visibility = "hidden";
+        }
     </script>
 </html>
