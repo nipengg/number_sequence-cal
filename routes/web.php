@@ -21,3 +21,7 @@ Route::get('/', function(){
     return view('aritmatika1');
 });
 
+Route::get('/test', function(){
+    return view('aritmatika');
+});
+
