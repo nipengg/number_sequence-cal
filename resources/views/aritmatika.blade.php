@@ -31,14 +31,17 @@
             }
         </style>
     </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-200 sm:items-center sm:pt-0">
-            <div class="container">
+    <body >
+        <div class="">
+            <div class="container-sm">
+              <div class="row">
+              <div class="col">
                 <h1>Arithmetic Sequence Calculator</h1>
                 <div class="jumbotron">
                         <h4>definition: an = a1 + f × (n-1)</h4>
                         <h4>example: 1, 3, 5, 7, 9 11, 13, ...</h4>
                   </div>
+                <div class="table-responsive-sm">
                 <table class="table table-borderless">
                     <tbody>
                       <tr>
@@ -60,31 +63,35 @@
                       </tr>
                     </tbody>
                   </table>
+                  </div>
                   <div class="jumbotron">
+                    <div class="table-responsive-sm">
                     <table class="table">
                       <tbody>
                         <tr>
                           <td style="text-align: left">Sequence :</td>
-                          <td><p id="demo" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
+                          <td><p id="demo" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
                         </tr>
                         <tr>
                           <td style="text-align: left">Un :</td>
-                          <td><p id="un" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
+                          <td><p id="un" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
                         </tr>
                         <tr>
                           <td style="text-align: left">Sn :</td>
-                          <td><p id="sn" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
+                          <td><p id="sn" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
                         </tr>
                       </tbody>
                     </table>
+                    </div>
                   </div>
             </div>
-            <div class="container">
+          <div class="col">
               <h1>Geometric Sequence Calculator</h1>
               <div class="jumbotron">
                       <h4>definition: an = a × rn-1</h4>
                       <h4>example: 1, 2, 4, 8, 16, 32, 64, 128, ...</h4>
                 </div>
+              <div class="table-responsive-sm">
               <table class="table table-borderless">
                   <tbody>
                     <tr>
@@ -106,32 +113,77 @@
                     </tr>
                   </tbody>
                 </table>
+              </div>
                 <div class="jumbotron">
+                  <div class="table-responsive-sm">
                   <table class="table">
                     <tbody>
                       <tr>
                         <td style="text-align: left">Sequence :</td>
-                        <td><p id="demo1" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
+                        <td><p id="demo1" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
                       </tr>
                       <tr>
                         <td style="text-align: left">Un :</td>
-                        <td><p id="unr" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
+                        <td><p id="unr" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
                       </tr>
                       <tr>
                         <td style="text-align: left">Sn :</td>
-                        <td><p id="snr" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
+                        <td><p id="snr" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
+                </div>
+              </div>
+              <div class="container">
+                <h1>Infinite Geometric Series Calculator</h1>
+                <div class="jumbotron">
+                        <h4>definition: an = a × rn-1</h4>
+                        <h4>example: 4, 2 , 0.5, 0.25, 0.125, ...</h4>
+                  </div>
+                <div class="table-responsive-sm">
+                <table class="table table-borderless">
+                    <tbody>
+                      <tr>
+                        <th scope="row">The First Number</th>
+                        <th scope="row">common ratio (r)</th>
+                      </tr>
+                      <tr>
+                        <td><input type="number" class="form-control" id="a3" name="a2"></td>
+                        <td><input type="number" class="form-control" id="r2" name="r2"></td>
+                      </tr>
+                      <tr>
+                        <th colspan="2" scope="row"> <button type="submit" onclick="calculateInfinite()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearGeometric()" class="btn btn-secondary">Clear~</button></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                  <div class="jumbotron">
+                    <div class="table-responsive-sm">
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td style="text-align: left">Sequence :</td>
+                          <td><p id="demo3" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
+                        </tr>
+                        <tr>
+                          <td style="text-align: left">Infinite Serial :</td>
+                          <td><p id="infinite" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                </div>
+            </div>
           </div>
-        </div>
+      </div>
     </body>
     <script type="text/javascript">
         function calculateArithmetic(){
-            var a1 = parseInt(document.getElementById("a1").value);
-            var f = parseInt(document.getElementById("f").value);
-            var n = parseInt(document.getElementById("n").value);
+            var a1 = parseFloat(document.getElementById("a1").value);
+            var f = parseFloat(document.getElementById("f").value);
+            var n = parseFloat(document.getElementById("n").value);
             var un = a1 + (n - 1) * f;
             var sn = n/2 * (a1 + un);
 
@@ -152,9 +204,9 @@
             document.getElementById("demo").style.visibility = "visible";
         }
         function calculateGeometric(){
-            var a2 = parseInt(document.getElementById("a2").value);
-            var r = parseInt(document.getElementById("r").value);
-            var n1 = parseInt(document.getElementById("n1").value);
+            var a2 = parseFloat(document.getElementById("a2").value);
+            var r = parseFloat(document.getElementById("r").value);
+            var n1 = parseFloat(document.getElementById("n1").value);
             var pow1 = Math.pow(r, n1 - 1);
             var pow2 = Math.pow(r, n1);
             var unr = a2 * pow1;
@@ -163,31 +215,22 @@
             if(r > 1){
               var snr = a2 * (pow2 - 1) / (r - 1);
 
-              var text = "";
-              var j = 0;
-              for (i = a2; j < 10; i = i * r){
-                text += i + ", ";
-                j = j + 1;
-              }
-
-              text += '....';
-
             }else if(r < 1){
               var snr = a2 * (1 - pow2) / (1 - r);
-
-              var text = "";
-              var j = 0
-              for (i = a2; i < 10; i = i * r){
-                text += i + ", ";
-                j = j + 1;
-              }
-
-              text += '....';
 
             }else if(r == 1 || r === -1){
               var snr = 'Ratio tidak bisa bernilai 1 atau -1';
               var text = 'Ratio tidak bisa bernilai 1 atau -1';
             }
+
+            var text = "";
+            var j = 0
+            for (i = a2; j < 10; i = i * r){
+              text += i + ", ";
+              j = j + 1;
+            }
+
+            text += '....';
 
             document.getElementById("demo1").innerHTML = text;
             document.getElementById('unr').innerHTML = unr;
@@ -195,6 +238,26 @@
             document.getElementById("unr").style.visibility = "visible";
             document.getElementById("snr").style.visibility = "visible";
             document.getElementById("demo1").style.visibility = "visible";
+        }
+        function calculateInfinite(){
+          var a3 = parseFloat(document.getElementById("a3").value);
+          var r2 = parseFloat(document.getElementById("r2").value);
+          var infinite = a3 / (1 - r2);
+
+          var text = "";
+          var j = 0
+          for (i = a3; j < 10; i = i * r){
+            text += i + ", ";
+            j = j + 1;
+          }
+
+          text += '....';
+
+          document.getElementById("demo3").innerHTML = text;
+          document.getElementById("demo3").style.visibility = "visible";
+          document.getElementById('infinite').innerHTML = infinite;
+          document.getElementById("infinite").style.visibility = "visible";
+
         }
         function clearArithmetic(){
             document.getElementById('a1').value = '';
