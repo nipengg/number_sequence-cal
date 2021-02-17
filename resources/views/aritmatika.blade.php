@@ -153,7 +153,7 @@
                         <td><input type="number" class="form-control" id="r2" name="r2"></td>
                       </tr>
                       <tr>
-                        <th colspan="2" scope="row"> <button type="submit" onclick="calculateInfinite()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearGeometric()" class="btn btn-secondary">Clear~</button></th>
+                        <th colspan="2" scope="row"> <button type="submit" onclick="calculateInfinite()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearInfinite()" class="btn btn-secondary">Clear~</button></th>
                       </tr>
                     </tbody>
                   </table>
@@ -212,17 +212,6 @@
             var unr = a2 * pow1;
             console.log(pow2);
 
-            if(r > 1){
-              var snr = a2 * (pow2 - 1) / (r - 1);
-
-            }else if(r < 1){
-              var snr = a2 * (1 - pow2) / (1 - r);
-
-            }else if(r == 1 || r === -1){
-              var snr = 'Ratio tidak bisa bernilai 1 atau -1';
-              var text = 'Ratio tidak bisa bernilai 1 atau -1';
-            }
-
             var text = "";
             var j = 0
             for (i = a2; j < 10; i = i * r){
@@ -231,6 +220,18 @@
             }
 
             text += '....';
+
+            if(r > 1){
+              var snr = a2 * (pow2 - 1) / (r - 1);
+
+            }else if(r < 1){
+              var snr = a2 * (1 - pow2) / (1 - r);
+
+            }else if(r == 1 || r === -1){
+              var snr = 'Ratio tidak bisa bernilai 1 atau -1';
+              text = 'Ratio tidak bisa bernilai 1 atau -1';
+              unr = 'Ratio tidak bisa bernilai 1 atau -1';
+            }
 
             document.getElementById("demo1").innerHTML = text;
             document.getElementById('unr').innerHTML = unr;
@@ -253,6 +254,11 @@
 
           text += '....';
 
+          if(r2 > 1 || r2 < -1) {
+            infinite = 'Ratio tidak bisa bernilai > 1 atau < -1';
+            text = 'Ratio tidak bisa bernilai > 1 atau < -1';
+          }
+
           document.getElementById("demo3").innerHTML = text;
           document.getElementById("demo3").style.visibility = "visible";
           document.getElementById('infinite').innerHTML = infinite;
@@ -274,6 +280,12 @@
             document.getElementById("unr").style.visibility = "hidden";
             document.getElementById("snr").style.visibility = "hidden";
             document.getElementById("demo1").style.visibility = "hidden";
+        }
+        function clearInfinite(){
+            document.getElementById('a3').value = '';
+            document.getElementById('r2').value = '';
+            document.getElementById("infinite").style.visibility = "hidden";
+            document.getElementById("demo3").style.visibility = "hidden";
         }
     </script>
 </html>
