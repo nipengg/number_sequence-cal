@@ -246,7 +246,7 @@
 
           var text = "";
           var j = 0
-          for (i = a3; j < 10; i = i * r){
+          for (i = a3; j < 10; i = i * r2){
             text += i + ", ";
             j = j + 1;
           }
