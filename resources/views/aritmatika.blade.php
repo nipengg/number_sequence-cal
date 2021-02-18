@@ -9,6 +9,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
         <!-- Styles -->
         <style>
@@ -23,50 +26,83 @@
                 text-align: center;
                 font-size: 20px;
             }
-        </style>
-
-        <style>
             body {
                 font-family: 'Nunito';
             }
         </style>
     </head>
-    <body >
-        <div class="">
+    <body>
+        <div class="container">
             <div class="container-sm">
               <div class="row">
               <div class="col">
                 <h1>Arithmetic Sequence Calculator</h1>
                 <div class="jumbotron">
-                        <h4>definition: an = a1 + f × (n-1)</h4>
+                        <h4>definition: Un = a + b × (n-1)</h4>
                         <h4>example: 1, 3, 5, 7, 9 11, 13, ...</h4>
-                  </div>
+                </div>
+
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">Ratio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu1">Sequence</a>
+                  </li>
+                </ul>
+
                 <div class="table-responsive-sm">
-                <table class="table table-borderless">
-                    <tbody>
-                      <tr>
-                        <th scope="row">The First Number</th>
-                        <th scope="row">common difference (f)</th>
-                      </tr>
-                      <tr>
-                        <td><input type="number" class="form-control" id="a1" name="a1"></td>
-                        <td><input type="number" class="form-control" id="f" name="f"></td>
-                      </tr>
-                      <tr>
-                        <th colspan="2" scope="row">the nth number to obtain</th>
-                      </tr>
-                      <tr>
-                        <td colspan="2"><input type="number" class="form-control" id="n" name="n"></td>
-                      </tr>
-                      <tr>
-                        <th colspan="2" scope="row"> <button type="submit" onclick="calculateArithmetic()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearArithmetic()" class="btn btn-secondary">Clear~</button></th>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div class="tab-content">
+                    <div id="home" class="container tab-pane active"><br>
+                      <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                          <th scope="row">The First Number</th>
+                          <th scope="row">common difference (f)</th>
+                        </tr>
+                        <tr>
+                          <td><input type="number" class="form-control" id="a1" name="a1" required></td>
+                          <td><input type="number" class="form-control" id="f" name="f" required></td>
+                        </tr>
+                        <tr>
+                          <th colspan="2" scope="row">the nth number to obtain</th>
+                        </tr>
+                        <tr>
+                          <td colspan="2"><input type="number" class="form-control" id="n" name="n"></td>
+                        </tr>
+                        <tr>
+                          <th colspan="2" scope="row"> <button type="submit" onclick="calculateArithmetic()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearArithmetic()" class="btn btn-secondary">Clear~</button></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div id="menu1" class="container tab-pane fade"><br>
+                      <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                          <th scope="row">Sequence Arithmetic</th>
+                        </tr>
+                        <tr>
+                          <td><input type="text" class="form-control" id="test" name="test" placeholder="ex : 1,2,3,4,5"></td>
+                        </tr>
+                        <tr>
+                          <th colspan="2" scope="row">the nth number to obtain</th>
+                        </tr>
+                        <tr>
+                          <td colspan="2"><input type="number" class="form-control" id="n4" name="n4"></td>
+                        </tr>
+                        <tr>
+                          <th colspan="2" scope="row"> <button type="submit" onclick="arithmeticSequence()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearArithmetic()" class="btn btn-secondary">Clear~</button></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
+                </div>
+
                   <div class="jumbotron">
                     <div class="table-responsive-sm">
-                    <table class="table">
+                    <table class="table" id="table1">
                       <tbody>
                         <tr>
                           <td style="text-align: left">Sequence :</td>
@@ -84,36 +120,75 @@
                     </table>
                     </div>
                   </div>
-            </div>
+                </div>
+
           <div class="col">
               <h1>Geometric Sequence Calculator</h1>
               <div class="jumbotron">
-                      <h4>definition: an = a × rn-1</h4>
+                      <h4>definition: Un = a × r^(n-1)</h4>
                       <h4>example: 1, 2, 4, 8, 16, 32, 64, 128, ...</h4>
                 </div>
+
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home1">Ratio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#menu2">Sequence</a>
+                  </li>
+                </ul>
+
               <div class="table-responsive-sm">
-              <table class="table table-borderless">
-                  <tbody>
-                    <tr>
-                      <th scope="row">The First Number</th>
-                      <th scope="row">common ratio (r)</th>
-                    </tr>
-                    <tr>
-                      <td><input type="number" class="form-control" id="a2" name="a2"></td>
-                      <td><input type="number" class="form-control" id="r" name="r"></td>
-                    </tr>
-                    <tr>
-                      <th colspan="2" scope="row">the nth number to obtain</th>
-                    </tr>
-                    <tr>
-                      <td colspan="2"><input type="number" class="form-control" id="n1" name="n1"></td>
-                    </tr>
-                    <tr>
-                      <th colspan="2" scope="row"> <button type="submit" onclick="calculateGeometric()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearGeometric()" class="btn btn-secondary">Clear~</button></th>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="tab-content">
+                  <div id="home1" class="container tab-pane active"><br>
+                    <table class="table table-borderless">
+                      <tbody>
+                      <tr>
+                        <th scope="row">The First Number</th>
+                        <th scope="row">common ratio (r)</th>
+                      </tr>
+                      <tr>
+                        <td><input type="number" class="form-control" id="a2" name="a2" required></td>
+                        <td><input type="number" class="form-control" id="r" name="r" required></td>
+                      </tr>
+                      <tr>
+                        <th colspan="2" scope="row">the nth number to obtain</th>
+                      </tr>
+                      <tr>
+                        <td colspan="2"><input type="text" class="form-control" id="n1" name="n1"></td></td>
+                      </tr>
+                      <tr>
+                        <th colspan="2" scope="row"> <button type="submit" onclick="calculateGeometric()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearGeometric()" class="btn btn-secondary">Clear~</button></th>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div id="menu2" class="container tab-pane fade"><br>
+                    <table class="table table-borderless">
+                      <tbody>
+                      <tr>
+                        <th scope="row">Sequence Geometric</th>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control" id="test2" name="test2" placeholder="ex : 1,2,3,4,5"></td></td>
+                      </tr>
+                      <tr>
+                        <th colspan="2" scope="row">the nth number to obtain</th>
+                      </tr>
+                      <tr>
+                        <td colspan="2"><input type="number" class="form-control" id="n5" name="n5"></td>
+                      </tr>
+                      <tr>
+                        <th colspan="2" scope="row"> <button type="submit" onclick="geometricSequence()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearGeometric()" class="btn btn-secondary">Clear~</button></th>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                </div>
               </div>
+
+
                 <div class="jumbotron">
                   <div class="table-responsive-sm">
                   <table class="table">
@@ -135,10 +210,11 @@
                 </div>
                 </div>
               </div>
+
               <div class="container">
                 <h1>Infinite Geometric Series Calculator</h1>
                 <div class="jumbotron">
-                        <h4>definition: an = a × rn-1</h4>
+                        <h4>definition: an = a / 1 - r</h4>
                         <h4>example: 4, 2 , 0.5, 0.25, 0.125, ...</h4>
                   </div>
                 <div class="table-responsive-sm">
@@ -149,8 +225,8 @@
                         <th scope="row">common ratio (r)</th>
                       </tr>
                       <tr>
-                        <td><input type="number" class="form-control" id="a3" name="a2"></td>
-                        <td><input type="number" class="form-control" id="r2" name="r2"></td>
+                        <td><input type="number" class="form-control" id="a3" name="a2" required></td>
+                        <td><input type="number" class="form-control" id="r2" name="r2" required></td>
                       </tr>
                       <tr>
                         <th colspan="2" scope="row"> <button type="submit" onclick="calculateInfinite()" class="btn btn-success">Calculate</button> <button type="button" onclick="clearInfinite()" class="btn btn-secondary">Clear~</button></th>
@@ -175,11 +251,57 @@
                   </div>
                   </div>
                 </div>
+
             </div>
           </div>
       </div>
     </body>
     <script type="text/javascript">
+        function arithmeticSequence(){
+            var value = document.getElementById('test').value;
+            var n4 = parseFloat(document.getElementById('n4').value);
+            var array = value.split(",").map(function(item) {
+                    return parseFloat(item, 10);
+             });
+            var un = array[0] + (n4 - 1) * (array[1] - array[0]);
+            var sn = n4/2 * (array[0] + un);
+            
+            document.getElementById('un').innerHTML = un;
+            document.getElementById('sn').innerHTML = sn;
+            document.getElementById("un").style.visibility = "visible";
+            document.getElementById("sn").style.visibility = "visible";
+        }
+
+        function geometricSequence(){
+            var value = document.getElementById('test2').value;
+            var n4 = parseFloat(document.getElementById('n5').value);
+            var array = value.split(",").map(function(item) {
+                    return parseFloat(item, 10);
+            });
+          
+            var r = array[1] / array[0];
+            var pow1 = Math.pow(r, n4 - 1);
+            var pow2 = Math.pow(r, n4);
+            var unr = array[0] * pow1;
+
+            if(r > 1){
+              var snr = array[0] * (pow2 - 1) / (r - 1);
+
+            }else if(r < 1){
+              var snr = array[0] * (1 - pow2) / (1 - r);
+
+            }else if(r == 1 || r === -1){
+              var snr = 'Ratio tidak bisa bernilai 1 atau -1';
+              text = 'Ratio tidak bisa bernilai 1 atau -1';
+              unr = 'Ratio tidak bisa bernilai 1 atau -1';
+            }
+
+            document.getElementById('unr').innerHTML = unr;
+            document.getElementById('snr').innerHTML = snr;
+            document.getElementById("unr").style.visibility = "visible";
+            document.getElementById("snr").style.visibility = "visible";
+        }
+
         function calculateArithmetic(){
             var a1 = parseFloat(document.getElementById("a1").value);
             var f = parseFloat(document.getElementById("f").value);
@@ -210,7 +332,6 @@
             var pow1 = Math.pow(r, n1 - 1);
             var pow2 = Math.pow(r, n1);
             var unr = a2 * pow1;
-            console.log(pow2);
 
             var text = "";
             var j = 0
@@ -254,9 +375,9 @@
 
           text += '....';
 
-          if(r2 > 1 || r2 < -1) {
-            infinite = 'Ratio tidak bisa bernilai > 1 atau < -1';
-            text = 'Ratio tidak bisa bernilai > 1 atau < -1';
+          if(r2 >= 1 || r2 <= -1) {
+            infinite = 'Ratio tidak bisa bernilai >= 1 atau =< -1';
+            text = 'Ratio tidak bisa bernilai =< 1 atau =< -1';
           }
 
           document.getElementById("demo3").innerHTML = text;
@@ -266,9 +387,11 @@
 
         }
         function clearArithmetic(){
-            document.getElementById('a1').value = '';
+            document.getElementById('a1').value = null;
             document.getElementById('f').value = '';
             document.getElementById('n').value = '';
+            document.getElementById('test').value = '';
+            document.getElementById('n4').value = '';
             document.getElementById("un").style.visibility = "hidden";
             document.getElementById("sn").style.visibility = "hidden";
             document.getElementById("demo").style.visibility = "hidden";
@@ -277,6 +400,8 @@
             document.getElementById('a2').value = '';
             document.getElementById('r').value = '';
             document.getElementById('n1').value = '';
+            document.getElementById('test2').value = '';
+            document.getElementById('n5').value = '';
             document.getElementById("unr").style.visibility = "hidden";
             document.getElementById("snr").style.visibility = "hidden";
             document.getElementById("demo1").style.visibility = "hidden";
