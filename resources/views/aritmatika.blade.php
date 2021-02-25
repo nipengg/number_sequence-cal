@@ -680,6 +680,12 @@
                     </td>
                   </tr>
                   <tr>
+                    <td style="text-align: left">Step :</td>
+                    <td>
+                      <p id="stepinfinite" style="visibility: hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
                     <td style="text-align: left">Infinite Serial :</td>
                     <td>
                       <p id="infinite" style="visibility: hidden"></p>
@@ -839,6 +845,8 @@
     document.getElementById("demo3").style.visibility = "visible";
     document.getElementById('infinite').innerHTML = infinite;
     document.getElementById("infinite").style.visibility = "visible";
+    document.getElementById('stepinfinite').innerHTML ='a / (1 - r) → ' + a3 + ' / (1 - ' + r2 + ')';
+    document.getElementById("stepinfinite").style.visibility = "visible";
 
   }
   function clearArithmetic() {
@@ -869,6 +877,7 @@
     document.getElementById('a3').value = '';
     document.getElementById('r2').value = '';
     document.getElementById("infinite").style.visibility = "hidden";
+    document.getElementById("stepinfinite").style.visibility = "hidden";
     document.getElementById("demo3").style.visibility = "hidden";
   }
 </script>
