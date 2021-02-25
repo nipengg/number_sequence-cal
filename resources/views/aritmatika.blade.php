@@ -423,7 +423,7 @@
         <div class="col">
           <h1>Arithmetic Sequence Calculator</h1>
           <div class="jumbotron">
-            <h4>definition: Un = a + b × (n-1)</h4>
+            <h4>definition: Un = a + (n-1) × b</h4>
             <h4>example: 1, 3, 5, 7, 9 11, 13, ...</h4>
           </div>
 
@@ -497,19 +497,31 @@
                   <tr>
                     <td style="text-align: left">Sequence :</td>
                     <td>
-                      <p id="demo" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      <p id="demo" style="visibility: hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left">Step Un :</td>
+                    <td>
+                      <p id="stepun"></p>
                     </td>
                   </tr>
                   <tr>
                     <td style="text-align: left">Un :</td>
                     <td>
-                      <p id="un" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      <p id="un" style="visibility: hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left">Step Sn :</td>
+                    <td>
+                      <p id="stepsn"></p>
                     </td>
                   </tr>
                   <tr>
                     <td style="text-align: left">Sn :</td>
                     <td>
-                      <p id="sn" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      <p id="sn" style="visibility: hidden"></p>
                     </td>
                   </tr>
                 </tbody>
@@ -599,19 +611,31 @@
                   <tr>
                     <td style="text-align: left">Sequence :</td>
                     <td>
-                      <p id="demo1" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      <p id="demo1" style="visibility: hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left">Step Un :</td>
+                    <td>
+                      <p id="stepung"></p>
                     </td>
                   </tr>
                   <tr>
                     <td style="text-align: left">Un :</td>
                     <td>
-                      <p id="unr" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      <p id="unr" style="visibility: hidden"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left">Step Sn :</td>
+                    <td>
+                      <p id="stepsng"></p>
                     </td>
                   </tr>
                   <tr>
                     <td style="text-align: left">Sn :</td>
                     <td>
-                      <p id="snr" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      <p id="snr" style="visibility: hidden"></p>
                     </td>
                   </tr>
                 </tbody>
@@ -652,13 +676,13 @@
                   <tr>
                     <td style="text-align: left">Sequence :</td>
                     <td>
-                      <p id="demo3" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      <p id="demo3" style="visibility: hidden"></p>
                     </td>
                   </tr>
                   <tr>
                     <td style="text-align: left">Infinite Serial :</td>
                     <td>
-                      <p id="infinite" style="visibility: hidden">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                      <p id="infinite" style="visibility: hidden"></p>
                     </td>
                   </tr>
                 </tbody>
@@ -683,6 +707,10 @@
 
     document.getElementById('un').innerHTML = un;
     document.getElementById('sn').innerHTML = sn;
+    document.getElementById('stepun').innerHTML ='a + (n-1) × b  → ' + array[0] + ' + (' + n4 + ' - 1) × ' + array[1];
+    document.getElementById('stepsn').innerHTML ='n / 2 × (a + un)  → ' + n4 + ' / 2 × (' + array[0] + ' + ' + un + ')';
+    document.getElementById("stepun").style.visibility = "visible";
+    document.getElementById("stepsn").style.visibility = "visible";
     document.getElementById("un").style.visibility = "visible";
     document.getElementById("sn").style.visibility = "visible";
   }
@@ -713,6 +741,10 @@
 
     document.getElementById('unr').innerHTML = unr;
     document.getElementById('snr').innerHTML = snr;
+    document.getElementById('stepung').innerHTML ='a × r^(n - 1)  → ' + array[0] + ' × ' + r + '^(' + n4 + ' - 1)';
+    document.getElementById('stepsng').innerHTML ='a × (r^n - 1) / (r - 1)  → ' + array[0] + ' × (' + r + '^' + n4 + ' - 1) / (' + r + ' - 1)';
+    document.getElementById("stepung").style.visibility = "visible";
+    document.getElementById("stepsng").style.visibility = "visible";
     document.getElementById("unr").style.visibility = "visible";
     document.getElementById("snr").style.visibility = "visible";
   }
@@ -736,6 +768,10 @@
     document.getElementById("demo").innerHTML = text;
     document.getElementById('un').innerHTML = un;
     document.getElementById('sn').innerHTML = sn;
+    document.getElementById('stepun').innerHTML ='a + (n-1) × b  → ' + a1 + ' + (' + n + ' - 1) × ' + f;
+    document.getElementById('stepsn').innerHTML ='n / 2 × (a + un)  → ' + n + ' / 2 × (' + a1 + ' + ' + un + ')';
+    document.getElementById("stepun").style.visibility = "visible";
+    document.getElementById("stepsn").style.visibility = "visible";
     document.getElementById("un").style.visibility = "visible";
     document.getElementById("sn").style.visibility = "visible";
     document.getElementById("demo").style.visibility = "visible";
@@ -772,6 +808,10 @@
     document.getElementById("demo1").innerHTML = text;
     document.getElementById('unr').innerHTML = unr;
     document.getElementById('snr').innerHTML = snr;
+    document.getElementById('stepung').innerHTML ='a × r^(n - 1)  → ' + a2 + ' × ' + r + '^(' + n1 + ' - 1)';
+    document.getElementById('stepsng').innerHTML ='a × (r^n - 1) / (r - 1)  → ' + a2 + ' × (' + r + '^' + n1 + ' - 1) / (' + r + ' - 1)';
+    document.getElementById("stepung").style.visibility = "visible";
+    document.getElementById("stepsng").style.visibility = "visible";
     document.getElementById("unr").style.visibility = "visible";
     document.getElementById("snr").style.visibility = "visible";
     document.getElementById("demo1").style.visibility = "visible";
@@ -807,6 +847,8 @@
     document.getElementById('n').value = '';
     document.getElementById('test').value = '';
     document.getElementById('n4').value = '';
+    document.getElementById("stepun").style.visibility = "hidden";
+    document.getElementById("stepsn").style.visibility = "hidden";
     document.getElementById("un").style.visibility = "hidden";
     document.getElementById("sn").style.visibility = "hidden";
     document.getElementById("demo").style.visibility = "hidden";
@@ -817,6 +859,8 @@
     document.getElementById('n1').value = '';
     document.getElementById('test2').value = '';
     document.getElementById('n5').value = '';
+    document.getElementById("stepung").style.visibility = "hidden";
+    document.getElementById("stepsng").style.visibility = "hidden";
     document.getElementById("unr").style.visibility = "hidden";
     document.getElementById("snr").style.visibility = "hidden";
     document.getElementById("demo1").style.visibility = "hidden";
